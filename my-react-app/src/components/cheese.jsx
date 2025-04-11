@@ -1,27 +1,29 @@
-export default cheese = [
+// components/Cheese.jsx
+import React from 'react';
 
-    {
+function Cheese() {
+  const cheeses = [
+    "6 Blended Cheeses",
+    "Vegan Cheese",
+    "No Cheese"
+  ];
 
-        chz: "6 Blended Cheeses"
+  return (
+    <fieldset>
+      <legend>Choose Your Cheese:</legend>
+      {cheeses.map((cheeses, index) => (
+        <div key={index}>
+          <input 
+            type="radio" 
+            id={`cheese-${index}`}
+            name="cheese" 
+            value={cheeses} 
+          />
+          <label htmlFor={`cheese-${index}`}>{cheeses}</label>
+        </div>
+      ))}
+    </fieldset>
+  );
+}
 
-    },
-
-    {
-
-        chz: "Vegan Cheese"
-
-    },
-
-    {
-
-        chz: "No Cheese"
-
-    },
-
-    {
-
-        chz: "Mozzarella"
-
-    },
-
-];
+export default Cheese;

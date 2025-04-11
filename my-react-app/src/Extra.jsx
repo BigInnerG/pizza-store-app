@@ -1,46 +1,104 @@
+import React from "react";
+
 function Extras() {
+  const desserts = [
+    {
+      name: "Chocolate Bums",
+      value: "chocolate",
+      img: "images/chocolate bum dessert.jpg",
+      alt: "chocolate filled with cream dessert",
+    },
+    {
+      name: "Cinnamon Rolls",
+      value: "cinnamon",
+      img: "images/cinnamon rolls.jpg",
+      alt: "cinnamon rolls",
+    },
+  ];
 
-    return(
+  const sodas = [
+    "Pepsi",
+    "Mountain Dew",
+    "Sunkist",
+    "Diet Pepsi",
+    "7up",
+    "Root Beer",
+  ];
 
-        <>
-            <h1>EXTRAS!!</h1>
+  const sides = [
+    {
+      name: "Pasta Salad",
+      value: "pasta",
+      img: "images/pasta salad.jpg",
+      alt: "pasta salad",
+    },
+    {
+      name: "Classic Side Salad",
+      value: "salad",
+      img: "images/salad ingredients.jpg",
+      alt: "salad ingredients",
+    },
+  ];
 
-            <br/><br/>
+  return (
+    <div className="extras-container">
+      <h1 className="page-title">Extras</h1>
 
-            <img src="images/chocolate bum dessert.jpg" height= "200px" alt="chocolate filled with cream dessert"/>
-            <br/>
-            <input type="radio" name="dessert" value="chocolate"/> Chocolate Bums
+      <br /><br />
 
-            <br/><br/><br/><br/>
+      <fieldset>
+        <legend>Desserts</legend>
+        {desserts.map(({ name, value, img, alt }) => (
+          <div className="extras-item" key={value}>
+            <img className="extras-img" src={img} alt={alt} />
+            <label>
+                <br /><br />
+              <input type="radio" name="dessert" value={value} />
+              {name}
+            </label>
+            <br /><br />
+          </div>
+        ))}
+      </fieldset>
 
-            <img src="images/cinnamon rolls.jpg" alt="cinnamon rolls"/>
-            <br/>
-            <input type="radio" name="dessert" value="cinnamon"/> Cinnamon rolls
+      <br /><br />
 
-            <br/><br/><br/><br/><br/>
+      <fieldset>
+        <legend>Drinks</legend>
+        <img
+          className="extras-img"
+          src="images/drinks.jpg"
+          alt="assorted soda drinks"
+        />
+        <div className="soda-options">
+          {sodas.map((soda, index) => (
+            <label key={index}>
+              <input type="checkbox" name="soda" value={soda.toLowerCase()} />
+              {soda}
+              <br />
+            </label>
+          ))}
+        </div>
+      </fieldset>
 
-            <img src="images/drinks.jpg" alt="drinks"/><br/>
-            <input type="checkbox" name="soda" value="drinks"/>Pepsi <br/>
-            <input type="checkbox" name="soda" value="drinks"/>Mountain Dew <br/>
-            <input type="checkbox" name="soda" value="drinks"/>Sunkist <br/>
-            <input type="checkbox" name="soda" value="drinks"/>Diet Pepsi <br/>
-            <input type="checkbox" name="soda" value="drinks"/>7up <br/>
-            <input type="checkbox" name="soda" value="drinks"/>Root Beer <br/>
+      <br /><br />
 
-            <br/><br/>
-
-            <img src="images/pasta salad.jpg" alt="pasta salad"/><br/>
-            <input type="radio" name="pasta" value="salad"/>Pasta Salad<br/>
-
-            <br/><br/><br/>
-
-            <img src="images/salad ingredients.jpg" alt="salad ingredients"/><br/>
-            <input type="radio" name="salad" value="classic"/>Classic Side Salad<br/>
-
-            <br/><br/><br/><br/><br/>
-        </>
-
-    );
-
+      <fieldset>
+        <legend>Side Salads</legend>
+        {sides.map(({ name, value, img, alt }) => (
+          <div className="extras-item" key={value}>
+            <img className="extras-img" src={img} alt={alt} />
+            <label>
+            <br /><br />
+              <input type="radio" name={value} value={value} />
+              {name}
+            </label>
+            <br /><br />
+          </div>
+        ))}
+      </fieldset>
+    </div>
+  );
 }
+
 export default Extras;

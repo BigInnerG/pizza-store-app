@@ -1,21 +1,39 @@
-function Home(){
+import { motion } from "framer-motion";
 
-    return(
+function Home() {
+  return (
+    <div className="home-container">
+      <motion.h1
+        className="header"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 4, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        King's Pizza Shop
+      </motion.h1>
 
-        <>
-            <h1 className="header">
-            King's Pizza Shop </h1>
-            <br></br>
-            <img src="images/pizzas n salad.jpg" alt="pic of pizzas and a salad"/>        
-            <br/><br/><br/><br/>
-            
-            <video src="youtube.com" controls>
+      <motion.img
+        id="homeimg"
+        src="images/pizzas n salad.jpg"
+        alt="pic of pizzas and a salad"
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2 }}
+      />    
 
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/ZptgjrqfFag?si=yvhCuLmbJ0ApeaIE" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-            </video>
-        </>
+      <br/><br/>
 
-    );
-
+      <motion.button
+        className="start-order-btn"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300 }}
+        onClick={() => window.location.href = "/menu"}
+      >
+        Start Your Order
+      </motion.button>
+    </div>
+  );
 }
+
 export default Home;

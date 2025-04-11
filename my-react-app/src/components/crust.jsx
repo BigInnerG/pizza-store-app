@@ -1,39 +1,25 @@
-export const crust = [
+import React from 'react';
 
-    {
+function Crust() {
+  const crustOptions = [
+    "Hand Tossed",
+    "Stuffed Crust",
+    "Thin",
+    "Gluten Free Crust",
+    "Pan"
+  ];
 
-        name: "Hand Tossed"
+  return (
+    <fieldset>
+        <legend>Choose Your Crust:</legend>
+      {crustOptions.map((option, index) => (
+        <div key={index}>
+          <input type="radio" name="crust" value={option} id={`crust-${index}`} />
+          <label htmlFor={`crust-${index}`}>{option}</label><br />
+        </div>
+      ))}
+    </fieldset>
+  );
+}
 
-    },
-
-    {
-
-        name: "Stuffed"
-
-    },
-
-    {
-
-        name: "Thin"
-
-    },
-
-    {
-
-        name: "Gluten Free"
-
-    },
-
-    {
-
-        name: "Handmade Pan"
-
-    },
-
-    {
-
-        name: "Cauliflower Crust"
-
-    },
-
-];
+export default Crust;

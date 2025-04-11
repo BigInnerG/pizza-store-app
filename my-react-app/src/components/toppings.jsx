@@ -1,73 +1,45 @@
-export const toppings = [
-    {
-        name: "Ham"
-    },
-    
-    {
-        name: "Pork Sausage"
-    },
+import React from "react";
 
-    {
-        name: "Beef Sausage"
-    },
+function Toppings() {
+  const toppingopt = [
+    "Ham",
+    "Beef Sausage",
+    "Pepperoni",
+    "Pork Sausage",
+    "Salami",
+    "Chicken",
+    "Bacon",
+    "Steak",
+    "Mushrooms",
+    "Onions",
+    "Banana Peppers",
+    "Bell Peppers",
+    "Olives",
+    "Extra Cheese",
+    "Diced Tomatoes",
+    "Spinach",
+    "Jalapenos",
+    "Pineapple"
+  ];
 
-    {
-        name: "Pepperoni"
-    },
+  return (
+    <fieldset>
+      <legend>Choose Up To 10 Toppings</legend>
+      <div className="toppings-list">
+        {toppingopt.map((name, index) => (
+          <div className="topping-item" key={index}>
+            <input
+              type="checkbox"
+              id={`topping-${index}`}
+              name="toppings"
+              value={name}
+            />
+            <label htmlFor={`topping-${index}`}>{name}</label>
+          </div>
+        ))}
+      </div>
+    </fieldset>
+  );
+}
 
-    {
-        name: "Salami"
-    },
-
-    {
-        name: "Chicken"
-    },
-
-    {
-        name: "Bacon"
-    },
-
-    {
-        name: "Steak"
-    },
-
-    {
-        name: "Bell Peppers"
-    },
-
-    {
-        name: "Mushrooms"
-    },
-
-    {
-        name: "Onions"
-    },
-
-    {
-        name: "Jalapeno Peppers"
-    },
-
-    {
-        name: "Banana Peppers"
-    },
-
-    {
-        name: "Black Olives"
-    },
-
-    {
-        name: "Diced Tomatoes"
-    },
-
-    {
-        name: "Sliced Tomatoes"
-    },
-
-    {
-        name: "Pineapples"
-    },
-
-    {
-        name: "Spinach"
-    }
-];
+export default Toppings;

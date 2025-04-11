@@ -1,33 +1,24 @@
-export const sauces = [
+import React from 'react';
 
-    {
+function Sauces() {
+  const sauceOptions = [
+    "King's Classic Tomato Sauce",
+    "Garlic Parmesan",
+    "Alfredo Sauce",
+    "King's Zesty Marinara Sauce"
+  ];
 
-        name: "King's Classic Tomato Sauce"
+  return (
+    <fieldset>
+        <legend>Choose Your Sauce:</legend>
+      {sauceOptions.map((option, index) => (
+        <div key={index}>
+          <input type="radio" name="sauce" value={option} id={`sauce-${index}`} />
+          <label htmlFor={`sauce-${index}`}>{option}</label><br />
+        </div>
+      ))}
+    </fieldset>
+  );
+}
 
-    },
-
-    {
-
-        name: "Garlic Parmesean"
-
-    },
-
-    {
-
-        name: "Alfredo Sauce"
-
-    },
-
-    {
-
-        name: "King's Zesty Marinara Sauce"
-
-    },
-
-    {
-
-        name: "No Sauce"
-
-    },
-
-];
+export default Sauces;

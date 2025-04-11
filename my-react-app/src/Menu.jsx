@@ -1,110 +1,67 @@
-import React, {  useState } from 'react'
-import { toppings } from './components/toppings';
-//import { cheese } from './components/cheese'
-//import { sauces } from './components/sauces'
+import React from 'react'
+import Toppings from './components/Toppings' 
+import Cheese from './components/cheese'
+import Sauces from './components/sauces'
+import Crust from './components/crust'
+import Sizes from './components/sizes'
 
-function Menu(){
+function Menu() {
+  return (
+    <div className="menu-container">
+      <h1>START YOUR ORDER HERE</h1>
 
-    return(
+      <br /><br />
 
-        <>
-            <h1>START YOUR ORDER HERE</h1>
+      <div>
 
-            <br></br><br></br>
+      <Sizes/>
 
-            <fieldset>
+      </div>
 
-            <legend>Choose Your Size:</legend>
+      <br/><br/>
 
-                <input type ="checkbox" name = "size" value = "pizza"/> Small<br/>
-                <input type ="checkbox" name = "size" value = "pizza"/> Medium<br/> 
-                <input type ="checkbox" name = "size" value = "pizza"/> Large<br/> 
+      <div>
 
+      <Crust />
 
-            </fieldset>
+      </div>
+        
 
+      <br/><br/>
 
-            <br/><br/>
+      <div>
 
+      <Sauces />
 
-            <fieldset>
+      </div>
 
-                <legend>Choose Your Crust:</legend>
+      <br /><br />
+      
+      <div>
 
-                <input type="checkbox" name="crust" value="handtossed"/> Hand Tossed<br/> 
-                <input type="checkbox" name="crust" value="stuffed"/> Stuffed Crust<br/> 
-                <input type="checkbox" name="crust" value="thin"/> Thin<br/> 
-                <input type="checkbox" name="crust" value="glutenfree"/> Gluten Free Crust<br/>
-                <input type="checkbox" name="crust" value="pan"/> Pan<br/> 
+      <Cheese />
 
-            </fieldset>
+      </div>
+      
+      <br /><br />
 
-            <br/><br/>
+      <div>
 
-            <fieldset>
+      <Toppings />
 
-                <legend>Choose Your Sauce:</legend>
+      </div>
+      
+      <br /><br />
 
-                <input type ="checkbox" name = "sauce" value = "pizza"/> King's Classic Tomato Sauce<br/> 
-                <input type ="checkbox" name = "sauce" value = "pizza"/> Garlic Parmesean<br/> 
-                <input type ="checkbox" name = "sauce" value = "pizza"/> Alfredo Sauce<br/> 
-                <input type ="checkbox" name = "sauce" value = "pizza"/> King's Zesty Marinara Sauce<br/> 
-
-            </fieldset>
-
-            <br/><br/>
-
-            <fieldset>
-
-                <legend>Cheese:</legend>
-
-            <input type ="checkbox" name = "cheese" value = "pizza"/> 6 Blended Cheeses<br/>        
-            <input type ="checkbox" name = "cheese" value = "pizza"/> Vegan Cheese<br/> 
-            <input type ="checkbox" name = "cheese" value = "pizza"/> No Cheese<br/> 
-
-            </fieldset>
-            
-            <br/><br/>
-
-            <fieldset> 
-
-            <legend>Choose Up To 10 Toppings</legend>           
-
-            <ul className="toppings-list">
-                
-                {toppings.map(({ name }, index) => {
-
-
-                    return (
-
-                        <li key={index}>
-                            <div className="toppings-list-item">
-                                
-                                <input
-                                    type="checkbox"
-                                    id={`custom-checkbox-${index}`}
-                                    name={name}/>
-
-                                <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
-                            </div>
-              
-                        </li>
-          );
-        })}
-
-                        
-            </ul>
-
-            </fieldset>
-
-            <br/><br/>
-
-            <p>Special Directions</p>
-            <textarea name ="textarea" rows="8">Enter special intstructions here</textarea>
-
-        </>
-
-    );
-
+      <p>Special Directions</p>
+      <textarea
+        id="textarea"
+        name="textarea"
+        rows="8"
+        placeholder="Enter special instructions here"
+      ></textarea>
+    </div>
+  )
 }
-export default Menu;
+
+export default Menu

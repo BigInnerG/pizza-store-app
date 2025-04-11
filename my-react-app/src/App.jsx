@@ -5,7 +5,6 @@ import Menu from './Menu'
 import Order from './Order'
 import Extras from "./Extra";
 import SignIn from "./SignIn";
-//import NotFound from './NotFound'
 import './App.css'
 
 function App() {
